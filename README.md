@@ -19,6 +19,3 @@ pub serve
 ```
 
 open a new tab on http://localhost:8080/
-
-**Warning**:<br>
-Due to `pub serve` limitation you can only  ask for the url `/` if you want to ask for `/lazyTwo` you need to write you own server
