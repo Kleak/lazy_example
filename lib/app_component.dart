@@ -10,15 +10,11 @@ import "package:angular2_lazy/components/home.dart";
 import "package:angular2_lazy/components/lazy_one.dart" deferred as lazyOne;
 import "package:angular2_lazy/components/lazy_two.dart" deferred as lazyTwo;
 
-Future<Type> lazyOneLoader() async {
-  await lazyOne.loadLibrary();
-  return lazyOne.LazyOne;
-}
+Future<Type> lazyOneLoader() =>
+    lazyOne.loadLibrary().then((_) => lazyOne.LazyOne);
 
-Future<Type> lazyTwoLoader() async {
-  await lazyTwo.loadLibrary();
-  return lazyTwo.LazyTwo;
-}
+Future<Type> lazyTwoLoader() =>
+    lazyTwo.loadLibrary().then((_) => lazyTwo.LazyTwo);
 
 @Component(
     selector: 'my-app',
