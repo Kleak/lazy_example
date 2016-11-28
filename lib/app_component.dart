@@ -26,8 +26,9 @@ Future<Type> lazyTwoLoader() async {
     templateUrl: 'app_component.html',
     directives: const [ROUTER_DIRECTIVES, Home])
 @RouteConfig(const [
-  const Route(name: 'Home', path: '', component: Home),
+  const Route(name: 'Home', path: '/', component: Home, useAsDefault: true),
   const AsyncRoute(name: 'LazyOne', path: '/lazyOne', loader: lazyOneLoader),
-  const AsyncRoute(name: 'LazyTwo', path: '/lazyTwo', loader: lazyTwoLoader)
+  const AsyncRoute(name: 'LazyTwo', path: '/lazyTwo', loader: lazyTwoLoader),
+  const Redirect(name: 'RHome', path: '**', redirectTo: const ['./Home'])
 ])
 class AppComponent {}
